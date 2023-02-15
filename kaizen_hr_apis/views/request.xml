@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="request_review_tree" model="ir.ui.view">
+            <field name="name">Request Review</field>
+            <field name="model">request.view</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="message"/>
+                    <field name="date"/>
+                    <field name="distance"/>
+                    <field name="location"/>
+                    <field name="state"/>
+                    <field name="is_accept"/>
+                    <field name="check_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="request_review_form_view" model="ir.ui.view">
+            <field name="name">Request Review</field>
+            <field name="model">request.view</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="message"/>
+                                <field name="date"/>
+                                <field name="check_type"/>
+                            </group>
+                            <group>
+                                <field name="distance"/>
+                                <field name="location"/>
+                                <field name="state"/>
+                                <field name="is_accept"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="request_review_action_view" model="ir.actions.act_window">
+            <field name="name">Request View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">request.view</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="request_review_categ" name="Request View" parent="hr_attendance.menu_hr_attendance_root"
+                  action="request_review_action_view"/>
+    </data>
+</odoo>
